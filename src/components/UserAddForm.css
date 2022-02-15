@@ -7,23 +7,31 @@ h2 {
     flex-direction: column;
 }
 
+#formErrors{
+    color: red;
+    font-weight: 800;
+    margin-top: 40px;
+}
+
 .user-add-form {
     display: flex;
     flex-direction: column;
     width: 400px;
-    padding: 40px;
-    background: rgba(0,0,0,.5);
+    padding: 30px;
+    background: rgba(41, 40, 80, 0.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
 }
 
-.user-add-form input {
-    max-width: 50%;
+.inputBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .inputBox input {
-    width: 100%;
+    width: 290px;
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
@@ -47,14 +55,16 @@ h2 {
 
 .user-add-form button {
     padding: 10px 20px;
-    color: #03e9f4;
+    color: #03aab3;
+    background: #62687e;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
     margin-top: 40px;
-    letter-spacing: 4px
+    letter-spacing: 4px;
+    font-weight: 800;
 }
 
 .user-add-form button:hover {

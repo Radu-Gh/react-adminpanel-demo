@@ -1,5 +1,6 @@
 import React from 'react';
 import './UserItem.css';
+import user from '../assets/imag/user.svg';
 
 function UserItem(props) {
     const {name, email, isGoldClient, onDelete, id} = props;
@@ -7,9 +8,9 @@ function UserItem(props) {
     
     return (
         <div className='aUser'>
-            <div>
+            <div className='firstColumn'>
                 <h3>Name: { name }</h3>
-                <img src='https://cdn2.iconfinder.com/data/icons/ui-kit-vol-1/100/1-55-512.png' alt='' height="60px"/>
+                <img src={ user } alt='' height="60px"/>
                 <button onClick={() => onDelete(id-1)}> Delete this user </button>
                 <p>Email: { email }</p>
                 { isGoldClient
