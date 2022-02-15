@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      background: 'white',
+      background: '',
+      color: 'white',
       showing: 'Show users',
       users: []
     };
@@ -60,24 +61,44 @@ class App extends React.Component {
     return(
       <div className="app" style={{background: this.state.background, color: this.state.color}}>
         <h1>Admin panel - Proiectul 1</h1>
-        <input type="button" name="users" value="Show users" onClick={(event) => this.show(event)} />
-        <input type="button" name="posts" value="Show posts" onClick={(event) => this.show(event)} />
-        <br/>
-        <label htmlFor="background">Change the color of the background: </label>
-        <input type="color" name="background" onChange={(event) => this.changeBackgroundColor(event)}/>
+        
+        <div className='aContainer'>
+        <div className='onLeft'>
+          <div className='zeButtons'> 
+            <input className='showers' type="button" name="users" value="Show users" onClick={(event) => this.show(event)} />
+            <input className='showers' type="button" name="posts" value="Show posts" onClick={(event) => this.show(event)} />
+          </div>
+          <br/>
+        
+          <div > 
+            <div className='changes'>
+              <label htmlFor="background">Change the color of the background: </label>
+              <input type="color" name="background" onChange={(event) => this.changeBackgroundColor(event)}/>
+            </div>
+          
+            <div className='changes'>
+              <label htmlFor="textColor">Change the color of the text on this webpage: </label>
+              <input type="color" name="textColor" onChange={(event) => this.changeColor(event)}/>
+            </div>
+          </div>
 
-        <label htmlFor="textColor">Change the color of the text on this webpage: </label>
-        <input type="color" name="textColor" onChange={(event) => this.changeColor(event)}/>
+          <UserAddForm className='addForm' submitAddForm={(event, name, email, isGoldClient) => this.submitAddForm(event, name, email, isGoldClient)}/>
+        </div>
 
-        <UserAddForm submitAddForm={(event, name, email, isGoldClient) => this.submitAddForm(event, name, email, isGoldClient)}/>
+        <div className='onRight'>
+          <div className='showing'>
+            {this.state.showing === "Show users" 
+            ? <UserList users={this.state.users} handleDelete={this.removeUser} /> 
+            : null }
+          </div>
 
-        {this.state.showing === "Show users" 
-        ? <UserList users={this.state.users} handleDelete={this.removeUser} /> 
-        : null }
-
-        {this.state.showing === "Show posts" 
-        ? <PostList/> 
-        : null }
+          <div className='showing'>
+            {this.state.showing === "Show posts" 
+            ? <PostList/> 
+            : null }
+          </div>
+        </div>
+        </div>
 
       </div>
     );

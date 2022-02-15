@@ -1,0 +1,9 @@
+.aUser{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.secondColumn{
+    margin-top: 60px;
+}

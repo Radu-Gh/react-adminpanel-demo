@@ -1,4 +1,5 @@
 import React from 'react';
+import './PostItem.css';
 
 function PostItem(props) {
     const { title, body } = props;

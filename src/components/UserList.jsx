@@ -24,6 +24,7 @@ class UserList extends React.Component {
         console.log("UserList was rendered!");
         return (
             <div>
+                <h2>Users list:</h2>
                 {users.map((user, index) =>{
                     return <UserItem
                         id={ user.id } 

@@ -57,37 +57,44 @@ class UserAddForm extends React.Component {
         const {name, email, isGoldClient} = this.state;
         
         return (
-            <div>
+            <div id='theForm'>
                 <div>
                     <FormErrors formErrors={this.state.formErrors} />
                 </div>
+                <h2>Adauga utilizatori:</h2>
                 <form
                     className="user-add-form"
                     onSubmit={(event) => this.props.submitAddForm(event, name, email, isGoldClient)}
                 >
-                    <h2>Adauga utilizatori:</h2>
-                    <label htmlFor="name">Nume:</label>
-                    <input
-                        type="text"
-                        name="name"
-                        onChange={(event) => this.updateName(event)}
-                    />
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="text"
-                        name="email"
-                        value={this.state.email}
-                        onChange={(event) => this.updateName(event)}
-                    />
-                    <label htmlFor="is-gold-client">GOLD Client</label>
-                    <input
-                        type="checkbox"
-                        name="is-gold-client"
-                        value="true"
-                        onChange={(event) => this.updateIsGoldClient(event)}
-                    />
+                    <div className='inputBox'> 
+                        <label htmlFor="name">Nume:</label>
+                        <input
+                            type="text"
+                            name="name"
+                            onChange={(event) => this.updateName(event)}/>
+                    </div>
+                    
+                    <div className='inputBox'> 
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            type="text"
+                            name="email"
+                            value={this.state.email}
+                            onChange={(event) => this.updateName(event)}/>
+                    </div>
+                    
+                    <div>
+                        <label htmlFor="is-gold-client">GOLD Client</label>
+                        <input
+                            type="checkbox"
+                            name="is-gold-client"
+                            value="true"
+                            onChange={(event) => this.updateIsGoldClient(event)}/>
+                    </div>    
 
-                    <button type="submit" disabled={!this.state.validForm}> Input user </button>
+                    <button type="submit" disabled={!this.state.validForm}> 
+                        Input user 
+                    </button>
                 </form>
             </div>
         )
